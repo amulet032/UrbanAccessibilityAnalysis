@@ -18,8 +18,8 @@ This project analyses accessibility patterns across Christchurch using open geos
 ## Key Questions
 
 - How accessible are essential services across different areas of Christchurch?
-- Which suburbs have relatively limited access to services such as healthcare or supermarkets?
-- What spatial patterns can be observed in service coverage?
+- Which areas experience relatively limited access to healthcare and supermarkets?
+- What spatial patterns can be observed in service accessibility across the city?
 
 ---
 
@@ -27,9 +27,9 @@ This project analyses accessibility patterns across Christchurch using open geos
 
 The project uses publicly available geospatial datasets:
 
-- **Road network data** from OpenStreetMap
-- **Service locations** (e.g., hospitals, medical centres, supermarkets) from OpenStreetMap
-- **Suburb or administrative boundaries** from Stats NZ or Christchurch open data portals
+- **Road network data** from OpenStreetMap  
+- **Service locations** (hospitals, clinics, supermarkets) from OpenStreetMap  
+- **Urban spatial context** derived from the Christchurch road network
 
 These datasets are combined to perform spatial and network-based accessibility analysis.
 
@@ -37,25 +37,25 @@ These datasets are combined to perform spatial and network-based accessibility a
 
 ## Methodology
 
-The analysis workflow includes the following steps:
+The analytical workflow includes the following steps:
 
-1. **Data acquisition**
-   - Download road network and service locations from OpenStreetMap.
+### 1. Data Acquisition
+- Download Christchurch road network and service locations from OpenStreetMap.
 
-2. **Data preparation**
-   - Clean and structure spatial datasets using GeoPandas.
-   - Extract relevant service categories.
+### 2. Data Preparation
+- Clean and structure spatial datasets using GeoPandas.
+- Extract healthcare and supermarket locations.
 
-3. **Network construction**
-   - Build a road network graph using OSMNX.
-   - Calculate travel distances along the network.
+### 3. Network Construction
+- Build a road network graph using OSMNX.
+- Map service locations to their nearest road network nodes.
 
-4. **Accessibility analysis**
-   - Measure distance or travel time to the nearest essential services.
-   - Compare accessibility across suburbs.
+### 4. Accessibility Analysis
+- Generate sample grid locations across Christchurch.
+- Compute shortest-path road network distance from each location to the nearest service.
 
-5. **Visualisation**
-   - Produce maps and charts to illustrate spatial accessibility patterns.
+### 5. Visualisation
+- Produce accessibility maps and statistical summaries to illustrate spatial service access patterns.
 
 ---
 
@@ -66,7 +66,7 @@ The analysis workflow includes the following steps:
 - GeoPandas  
 - OSMNX  
 - NetworkX  
-- Matplotlib / Folium
+- Matplotlib  
 
 ---
 
@@ -89,13 +89,13 @@ Using road-network distances calculated from sample locations across Christchurc
 ### Central Christchurch shows the highest service accessibility
 
 Healthcare and supermarket locations are concentrated in the central urban area.  
-As a result, grid points near the city centre have the shortest travel distances to essential services.
+As a result, locations near the city centre have the shortest travel distances to essential services.
 
 ---
 
 ### Peripheral areas show significantly longer travel distances
 
-Outer suburban and fringe areas experience much longer network travel distances, in some cases exceeding **12–14 km** to the nearest healthcare facility.
+Outer suburban and fringe areas experience substantially longer road network travel distances, in some cases exceeding **12–14 km** to the nearest healthcare facility.
 
 ---
 
@@ -114,8 +114,7 @@ This reflects a broader spatial distribution of supermarkets compared with healt
 
 ### Healthcare Accessibility
 
-![Healthcare Accessibility Map](<img width="2819" height="2970" alt="healthcare_accessibility_map" src="https://github.com/user-attachments/assets/9d46184f-8f83-4756-a396-17d897af60a3" />
-)
+![Healthcare Accessibility Map](https://github.com/user-attachments/assets/9d46184f-8f83-4756-a396-17d897af60a3)
 
 This map illustrates road-network distance to the nearest healthcare service across Christchurch.
 
@@ -126,8 +125,7 @@ This map illustrates road-network distance to the nearest healthcare service acr
 
 ### Supermarket Accessibility
 
-![Supermarket Accessibility Map](<img width="2819" height="2970" alt="supermarket_accessibility_map" src="https://github.com/user-attachments/assets/71c452ef-4c44-435f-ad34-a5c8dde272a0" />
-)
+![Supermarket Accessibility Map](https://github.com/user-attachments/assets/71c452ef-4c44-435f-ad34-a5c8dde272a0)
 
 This map shows accessibility to supermarkets using the same network-distance approach.
 
@@ -140,4 +138,4 @@ The results highlight a clear spatial accessibility gradient across Christchurch
 - **Central Christchurch → higher service accessibility**
 - **Peripheral areas → reduced accessibility**
 
-This pattern reflects the concentration of services in the central urban area and the lower service density in outer suburbs.
+This pattern reflects the concentration of services in the central urban area and lower service density in outer suburban areas.
